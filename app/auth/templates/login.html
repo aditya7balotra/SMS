@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMS/Login</title>
+
+    <!--LOCOMOTIVE CSS CDN-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css"
+    />
+
+    <!-- Website Icon -->
+    <link rel="icon" href="" />
+
+    <!-- REMIX ICON CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!-- SHERY CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.css"
+    />
+
+    <!-- Animate CSS CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <!-- External CDN CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS FILE LINKING -->
+    <link rel="stylesheet" href="./css/login.css" />
+  </head>
+  <body>
+    <div class="settle">
+      <div class="img-container"></div>
+      <div class="page-container">
+        <!-- User Controller -->
+        <div
+          class="login-container animate__animated animate__flipInY"
+          id="userForum"
+        >
+          <div class="admin" id="adnBtn">
+            <i class="ri-user-settings-fill"></i>Admin
+          </div>
+          <img src="./Images/loginLogo.jpg" alt="User Image" />
+          <h2>Login</h2>
+          <form id="userForm">
+            <select name="panel" required>
+              <option value="" disabled selected>Are You</option>
+              <option value="teacher">Teacher</option>
+              <option value="student">Student</option>
+            </select>
+
+            <input
+              type="text"
+              name="school_name"
+              placeholder="School Name"
+              required
+            />
+
+            <input type="email" name="email" placeholder="Email" required />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              required
+            />
+
+            <div class="checkbox-container">
+              <input type="checkbox" name="remember_me" id="remember_me" />
+              <label for="remember_me">Remember Me</label>
+            </div>
+
+            <button type="submit">Login</button>
+
+            <h3>or</h3>
+
+            <a href="#Register"
+              ><button id="reg-btn" type="button">Register</button></a
+            >
+          </form>
+        </div>
+        <!-- Admin Controller -->
+        <div
+          class="admin-Control animate__animated animate__flipInY"
+          id="adminForum"
+        >
+          <i class="ri-arrow-left-circle-line" id="back"></i>
+
+          <div id="head5">Login</div>
+          <br /><br /><br />
+
+          <form>
+            <input
+              type="email"
+              name="email"
+              id="email_ln"
+              required="required"
+              placeholder="Email Address"
+            />
+            &nbsp;
+            <i class="fa-solid fa-circle-exclamation" id="f_iconln"></i>
+
+            <br /><br />
+
+            <input
+              type="password"
+              id="pass_ln"
+              name="password"
+              required="required"
+              placeholder=" Password"
+            />
+            &nbsp;
+            <i class="fa-solid fa-circle-exclamation" id="f_iconln1"></i>
+
+            <br /><br /><br />
+
+            <button type="submit" id="login_ln">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!--                                 <<<<< FILE LINKS AND CDN >>>>>                                    -->
+
+    <!--LOCOMOTIVE JS CDN-->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.js"></script>
+
+    <!-- GSAP CDN FILE-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+      integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!-- SCROLL TRIGGER CDN FILE-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+      integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!--  Gsap is needed for Basic Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <!-- Scroll Trigger is needed for Scroll Effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- ControlKit is needed for Debug Panel -->
+    <script src="https://cdn.jsdelivr.net/gh/automat/controlkit.js@master/bin/controlKit.min.js"></script>
+
+    <!-- SHERY JS CDN -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/sheryjs/dist/Shery.js"
+    ></script>
+
+    <!-- JS FILE LINKING -->
+    <script src="./js/login.js"></script>
+  </body>
+</html>
