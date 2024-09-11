@@ -1,11 +1,11 @@
 # importing necessities
 from flask import Flask
 from .auth import registerBlu
-from models import establish_clients_db
+# from models import establish_clients_db
 from config import development_config
 
 # establishing the clients db
-establish_clients_db()
+# print(establish_clients_db())
 
 # creating the app object
 app = Flask(__name__)
