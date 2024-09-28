@@ -121,3 +121,31 @@ def verify_otp():
         
         flash('Wrong OTP' , 'fail')
         return render_template('otp.html')
+    
+
+@registerBlu.route('/resendOTP')
+def resendOTP():
+    '''
+    this view will resend the OTP and send it to the user
+    '''
+    
+    # fetching the email
+    email = session.get('form_data').get('email')
+    
+    
+    # generating otp
+        
+    otp = random.randint(1000 , 9999)
+    session['otp'] = str(otp)
+    print(otp)
+    
+    # sending mail
+    email_status = send_mail(
+        subject= 'SMS registration OTP',
+        body = f'Your registration OTP is {otp}',
+        to_email= email
+    )
+    
+    print(email_status)
+    
+    return render_template('otp.html')
