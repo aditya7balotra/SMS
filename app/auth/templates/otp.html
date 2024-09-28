@@ -52,52 +52,97 @@
             font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            opacity: .8;
-            /* pointer-events: none; */
         }
-
         button:hover {
             background-color: #218838;
         }
-
-        .success {
-            color: green;
+        button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
         }
-        .danger {
-            color: red;
+        #resend-btn {
+            background-color: #007bff;
+            margin-top: 20px;
         }
-
-
+        #resend-btn:disabled {
+            background-color: #007bff;
+            opacity: 0.6;
+        }
+        #timer {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #888;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>OTP Verification</h1>
         <form id="otp-form" method="post" action="{{ url_for('registerBlu.verify_otp') }}">
-            
-
             <div class="input-group">
                 <label for="otp">Enter OTP:</label>
-                <input type="text" id="otp" name="otp" placeholder="Enter OTP" required oninput="checkOTP()">
+                <input type="text" id="otp" name="otp" placeholder="Enter OTP" required>
             </div>
             
             <div>
                 <!-- Display Flash Messages -->
                 {% with messages = get_flashed_messages(with_categories=true) %}
                     {% if messages %}
-                    
                         {% for category, message in messages %}
                         <b style="color:red; text-decoration: underline;" class="{{ category }}">{{ message }}</b>
                         {% endfor %}
-                        
                     {% endif %}
                 {% endwith %}
             </div>
             <br><br>
-
+            
             <button type="submit" id="verify-button">Verify</button>
         </form>
+        <a href="{{url_for('registerBlu.resendOTP')}}">
+            <button id="resend-btn" disabled>Resend OTP</button>
+        </a>
+        <div id="timer">Resend OTP in <span id="countdown">30</span> seconds</div>
     </div>
-    
+
+    <script>
+        // Variables for the countdown and interval
+        let countdownElement = document.getElementById('countdown');
+        let resendButton = document.getElementById('resend-btn');
+        let timer = 30;
+        let countdownInterval; // Holds the reference to the interval
+        
+        function startTimer() {
+            timer = 30; // Reset timer to 30 seconds
+            resendButton.disabled = true; // Disable the resend button
+            countdownElement.textContent = timer; // Reset the countdown text
+            document.getElementById('timer').style.display = 'block'; // Make sure the timer is visible
+
+            // Clear any previous interval
+            clearInterval(countdownInterval);
+            
+            countdownInterval = setInterval(() => {
+                timer--;
+                countdownElement.textContent = timer;
+
+                if (timer === 0) {
+                    clearInterval(countdownInterval); // Stop the timer
+                    resendButton.disabled = false; // Enable the resend button
+                    
+                }
+            }, 1000);
+        }
+
+        // Start the timer when the page loads
+        window.onload = function() {
+            startTimer();
+        };
+
+        // Resend OTP function (for now, just resetting the timer)
+        resendButton.addEventListener('click', function() {
+            startTimer(); // Restart the timer
+
+
+        });
+    </script>
 </body>
 </html>
