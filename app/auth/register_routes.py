@@ -1,7 +1,7 @@
 from flask import render_template , request , session , flash
 from .forms import RegisterForm
 from datetime import datetime
-# importing the registration blueprint
+# importing the 'registration' blueprint
 from . import registerBlu
 import os
 from models import sup_connection_pool

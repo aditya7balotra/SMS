@@ -9,3 +9,6 @@ def gen_hash(pswd):
     
     return hashed_pswd
 
+def check_password(plain_password, hashed_password):
+    # Verify the password
+    return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password)

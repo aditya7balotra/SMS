@@ -1,10 +1,25 @@
-# this contains all the form related to the blueprints registered inside the auth folder
-
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField , EmailField , SelectField , FileField , BooleanField , IntegerField
-from wtforms.validators import DataRequired, Length , Regexp , EqualTo
-from flask_wtf.file import FileAllowed , FileRequired
-
+# import email_validator
+from wtforms import (
+    StringField,
+    PasswordField,
+    SubmitField,
+    BooleanField,
+    SubmitField , 
+    EmailField , 
+    SelectField , 
+    FileField ,  
+    IntegerField
+)
+from wtforms.validators import (
+    DataRequired,
+    Length,
+    Email,
+    Length,
+    Regexp,
+    EqualTo
+)
+# from flask_wtf.file import FileAllowed , FileRequired
 
 
 class RegisterForm(FlaskForm):
@@ -60,4 +75,35 @@ class RegisterForm(FlaskForm):
     
     submit = SubmitField('Register')
 
-
+class t_s_LoginForm(FlaskForm):
+    userType = SelectField(
+        'Are you' ,
+        choices=[
+        ('teacher' , 'Teacher'),
+        ('student' , 'Student'),
+        ],
+        validators = [DataRequired()])
+    email=StringField(
+        "Email",
+        validators=[DataRequired(),Email()]
+    )
+    password=PasswordField(
+        "Password",
+        validators=[DataRequired()]
+    )
+    remember_me=BooleanField(
+        "Remember Me",
+        validators= [DataRequired()]
+    )
+    submit=SubmitField("Login")
+    
+class adminLoginForm(FlaskForm):
+    email=StringField(
+        "Email",
+        validators=[DataRequired(),Email()]
+    )
+    password=PasswordField(
+        "Password",
+        validators=[DataRequired()]
+    )
+    submit=SubmitField("Login")

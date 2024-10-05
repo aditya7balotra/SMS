@@ -45,7 +45,7 @@ sup_connection_pool = mysql.connector.pooling.MySQLConnectionPool(
     pool_size=5,  # Size of the pool, adjust based on traffic
     pool_reset_session=True,  # Resets session for new connections
     host=os.getenv('db_host'),
-    database=os.getenv('sup_db_name'),
+    database=os.getenv('creators_db_name'),
     user=os.getenv('db_username'),
     password=os.getenv('db_pswd')
 )
