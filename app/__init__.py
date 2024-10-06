@@ -2,8 +2,7 @@
 
 from flask import Flask,Blueprint,render_template
 from .auth import loginBlu,registerBlu
-from .profile import dashBlu
-from .home import homeBlu
+
 # from models import establish_clients_db
 from config import development_config
 from dotenv import load_dotenv
@@ -29,9 +28,7 @@ app.config.from_object(development_config)
 blueprints_list = [
 
     (loginBlu , '/login'),
-    (registerBlu , '/register'),
-    (dashBlu,'/dashboard'),
-    (homeBlu,'/')
+    (registerBlu , '/register')
 
 ]
 
