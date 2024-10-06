@@ -4,7 +4,7 @@ from flask import Flask,Blueprint,render_template
 from .auth import loginBlu,registerBlu
 from .profile import dashBlu
 from .home import homeBlu
-from models import establish_clients_db
+# from models import establish_clients_db
 from config import development_config
 from dotenv import load_dotenv
 import os
@@ -13,7 +13,7 @@ import os
 load_dotenv()
 
 # establishing the clients db
-establish_clients_db()
+# establish_clients_db()
 
 # creating the app object
 app = Flask(__name__)

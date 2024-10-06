@@ -12,7 +12,7 @@
     />
 
     <!-- Website Icon -->
-    <link rel="icon" href="Images/images-removebg-preview.png" />
+    <link rel="icon" href="{{url_for('loginBlu.static', filename = '/images/images-removebg-preview.png')}}" />
 
     <!-- REMIX ICON CDN -->
     <link
@@ -35,7 +35,7 @@
     />
 
     <!-- CSS FILE LINKING -->
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="{{  url_for('loginBlu.static' , filename = 'css/style.css') }}" />
   </head>
   <body>
     <div id="main">
@@ -43,7 +43,7 @@
       <div id="page1">
         <div id="nav">
           <div class="box1">
-            <img src="Images/templogo.png" alt="" />
+            <img src="{{url_for('loginBlu.static', filename = '/images/templogo.png')}}" alt="" />
             <h2>EduSphere</h2>
           </div>
           <div class="box2">
@@ -52,10 +52,10 @@
             <h5>Contact</h5>
             <i class="ri-global-fill"></i>
             <button type="button" class="btn btn-dark">
-              <a href="#sign">Sign In</a>
+              <a href="{{ url_for('loginBlu.login_user') }}">Sign In</a>
             </button>
             <button type="button" class="btn btn-dark">
-              <a href="#register">Register</a>
+              <a href="{{ url_for('registerBlu.register_user') }}">Register</a>
             </button>
           </div>
         </div>
@@ -75,7 +75,7 @@
             </button>
           </div>
           <div class="box" id="box2">
-            <img src="Images/img1.jpeg" alt="" />
+            <img src="{{url_for('loginBlu.static', filename = '/images/img1.jpeg')}}" alt="" />
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@
           <div class="settle">
             <div class="card" id="ci1">
               <h3>Attendance Tracking</h3>
-              <img src="Images/Tracking.png" alt="" />
+              <img src="{{url_for('loginBlu.static', filename = '/images/Tracking.png')}}" alt="" />
               <h5>
                 Efficiently monitor and records students Attendance to maintain
                 accurate records and identify trends
@@ -105,7 +105,7 @@
             </div>
             <div class="card">
               <h3>Central Dashboard</h3>
-              <img src="Images/dashboard.png" alt="" />
+              <img src="{{url_for('loginBlu.static', filename = '/images/dashboard.png')}}" alt="" />
               <h5>
                 Easily manage, records and analyze students grades and
                 performance to ensure accurate assessment and reporting
@@ -115,7 +115,7 @@
           <div class="settle">
             <div class="card">
               <h3>Grade Management</h3>
-              <img src="Images/grade.png" alt="" />
+              <img src="{{url_for('loginBlu.static', filename = '/images/grade.png')}}" alt="" />
               <h5>
                 Good for grading the students according to their score and
                 performance all data can be feeded
@@ -123,7 +123,7 @@
             </div>
             <div class="card">
               <h3>Communication Tools</h3>
-              <img src="Images/tools.png" alt="" />
+              <img src="{{url_for('loginBlu.static', filename = '/images/tools.png')}}" alt="" />
               <h5>
                 Robust messaging and notifications systems that enhance
                 communication between student's and teacher's
@@ -192,6 +192,6 @@
     ></script>
 
     <!-- JS FILE LINKING -->
-    <script src="js/script.js"></script>
+    <script src="{{ url_for('loginBlu.static' , filename = 'js/script.js') }}"></script>
   </body>
 </html>
