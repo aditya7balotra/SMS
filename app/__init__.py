@@ -2,6 +2,7 @@
 
 from flask import Flask,Blueprint,render_template
 from .auth import loginBlu,registerBlu
+from .adminDashboard import adminDashBlu
 
 # from models import establish_clients_db
 from config import development_config
@@ -27,8 +28,9 @@ app.config.from_object(development_config)
 # (blueprint_object , /url_prefix)
 blueprints_list = [
 
-    (loginBlu , '/login'),
-    (registerBlu , '/register')
+    (loginBlu , '/'),
+    (registerBlu , '/register'),
+    (adminDashBlu, '/admin')
 
 ]
 

@@ -58,7 +58,7 @@ def login_user():
                 # session['email'] = email
                 # session['password']=plain_password
                 # print('redirecting to the dashboard')
-                return 'WELCOME TO THE DASHBOARD'
+                return redirect(url_for('adminDashBlu.home'))
         
             else:
                 return "Invalid email or password"

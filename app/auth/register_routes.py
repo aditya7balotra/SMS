@@ -1,4 +1,4 @@
-from flask import render_template , request , session , flash
+from flask import render_template , request , session , flash, redirect, url_for
 from .forms import RegisterForm
 from datetime import datetime
 # importing the 'registration' blueprint
@@ -114,8 +114,8 @@ def verify_otp():
         
         
         
-        
-        return 'done'
+        # redirecting the user to the login page after successfull registration
+        return redirect('/')
     
     else:
         
@@ -126,7 +126,7 @@ def verify_otp():
 @registerBlu.route('/resendOTP')
 def resendOTP():
     '''
-    this view will resend the OTP and send it to the user
+    this view will recreate the OTP and send it to the user
     '''
     
     # fetching the email
